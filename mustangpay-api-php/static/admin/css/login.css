@@ -1,0 +1,796 @@
+*, h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0
+}
+
+*, li, ol, p, ul {
+    margin: 0
+}
+
+body, div.container, html {
+    width: 100%
+}
+
+*, div.main-wrapper table.set-detail td input[type=file] {
+    outline: 0
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body, html {
+    height: 100%;
+    overflow-y: auto;
+    background: #f2f2f2;
+    font-size: 12px;
+    font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif
+}
+
+body {
+    padding: 60px 0 0 180px
+}
+
+li, ol, ul {
+    list-style: none
+}
+
+a:active, a:hover, a:link, a:visited {
+    text-decoration: none
+}
+
+div.left-menu-wrap {
+    width: 180px;
+    height: 100%;
+    background: #353441;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999
+}
+
+div.left-menu-wrap div.logo {
+    background: #2183D8;
+    text-align: center;
+    padding: 15px 0
+}
+
+div.left-menu-wrap div.logo h3 {
+    font-size: 24px;
+    color: #FFF
+}
+
+div.left-menu-wrap div.logo img {
+    width: 100%
+}
+
+div.left-menu-wrap ul.list {
+    width: 100%;
+    position: relative
+}
+
+div.left-menu-wrap ul.list li {
+    width: 100%;
+    border-bottom: 1px solid #3F3E4B;
+    font-size: 16px;
+    text-align: right
+}
+
+div.left-menu-wrap ul.list li a {
+    color: #FFF
+}
+
+div.left-menu-wrap ul.list li p.top {
+    padding: 15px 30px
+}
+
+div.left-menu-wrap ul.list li ol.list {
+    display: none;
+    height: -webkit-calc(100% - 56px);
+    height: calc(100% - 56px);
+    overflow-y: auto;
+    border-top: 1px solid #3F3E4B;
+    border-left: 1px solid #3F3E4B;
+    background: #272730;
+    position: fixed;
+    left: 180px;
+    top: 56px;
+    z-index: 9
+}
+
+div.left-menu-wrap ul.list li ol.list li {
+    border-top: 1px solid #32323B;
+    border-bottom: 0;
+    padding: 15px 20px;
+    white-space: nowrap;
+    text-align: left;
+    background: 0 0
+}
+
+div.left-menu-wrap ul.list li ol.list li.active {
+    background: #1b1b22
+}
+
+div.left-menu-wrap ul.list li:hover ol.list {
+    display: block
+}
+
+div.left-menu-wrap ul.list li.active p.top {
+    background: #2F3D4F
+}
+
+div.header-wrapper {
+    padding-left: 180px;
+    width: 100%;
+    height: 60px;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    background: #FFF;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999
+}
+
+div.header-wrapper ul:after {
+    display: block;
+    content: '';
+    clear: both
+}
+
+div.header-wrapper ul li {
+    padding: 0 18px;
+    border-left: 1px solid #CCC;
+    line-height: 14px;
+    float: left
+}
+
+div.header-wrapper ul li:first-child {
+    border-left: 0
+}
+
+div.header-wrapper ul li a {
+    color: #333;
+    display: inline-block;
+    vertical-align: middle
+}
+
+div.header-wrapper ul li a:hover {
+    color: #666
+}
+
+div.header-wrapper ul li i.icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    background: center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin-right: 6px
+}
+
+div.header-wrapper ul li i.icon.computer {
+    background-image: url(../../img/admin/computer.png)
+}
+
+div.header-wrapper ul.left {
+    float: left;
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 22px
+}
+
+div.header-wrapper ul.right {
+    font-size: 14px;
+    float: right;
+    margin-top: 22px
+}
+
+div.login-wrapper {
+    width: 100%;
+    height: 100%
+}
+
+div.login-wrapper .login-box {
+    width: 420px;
+    height: 460px;
+    margin-left: -210px;
+    margin-top: -290px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999
+}
+
+div.login-wrapper .login-box form {
+    padding: 20px 30px;
+    background: #FFF;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden
+}
+
+div.login-wrapper .login-box form h3 {
+    font-size: 24px;
+    text-align: center;
+    padding: 30px 0 20px
+}
+
+div.login-wrapper .login-box form .ipt-txt {
+    width: 100%;
+    padding: 10px 0
+}
+
+div.login-wrapper .login-box form .ipt-txt input {
+    width: 100%;
+    border: 1px solid #CCC;
+    font-size: 14px;
+    padding: 8px 15px
+}
+
+div.login-wrapper .login-box form .ipt-txt.verify {
+    padding-right: 120px;
+    position: relative
+}
+
+div.login-wrapper .login-box form .ipt-txt.verify img.code {
+    display: block;
+    width: 110px;
+    height: 38px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1
+}
+
+div.login-wrapper .login-box form button.btn-submit {
+    width: 100%;
+    height: 42px;
+    background: #009DDA;
+    font-size: 16px;
+    color: #FFF;
+    border: 0;
+    margin: 15px 0 30px
+}
+
+div.login-wrapper .login-box form .help-block {
+    margin-bottom: -5px;
+}
+
+div.login-wrapper .login-box p.foot {
+    text-align: center;
+    color: #666;
+    padding: 15px 0
+}
+
+div.page-wrap {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 14px;
+    text-align: right
+}
+
+div.page-wrap a, div.page-wrap span {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 5px
+}
+
+div.page-wrap a {
+    color: #666
+}
+
+div.page-wrap a.current, div.page-wrap a:hover {
+    color: #009DDA
+}
+
+div.page-wrap span.dot {
+    color: #999
+}
+
+div.main-wrapper {
+    width: 100%;
+    min-height: -webkit-calc(100% - 50px);
+    min-height: calc(100% - 50px);
+    padding: 30px
+}
+
+div.main-wrapper.index-wrapper ul.index-view {
+    width: 100%
+}
+
+div.main-wrapper.index-wrapper ul.index-view:after {
+    display: block;
+    content: '';
+    clear: both
+}
+
+div.main-wrapper.index-wrapper ul.index-view li {
+    width: -webkit-calc(25% - 22.5px);
+    width: calc(25% - 22.5px);
+    border: 1px solid #CCC;
+    background: #FFF;
+    text-align: center;
+    padding: 21px 15px;
+    margin-left: 30px;
+    float: left
+}
+
+div.main-wrapper.index-wrapper ul.index-view li:first-child {
+    margin-left: 0
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon, div.main-wrapper.index-wrapper ul.index-view li span.tit {
+    display: inline-block;
+    vertical-align: middle
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon {
+    background: center no-repeat;
+    width: 24px;
+    height: 24px;
+    -webkit-background-size: 24px 24px;
+    background-size: 24px
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon.icon-01 {
+    background-image: url(../../img/admin/icon_01.png)
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon.icon-02 {
+    background-image: url(../../img/admin/icon_02.png)
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon.icon-03 {
+    background-image: url(../../img/admin/icon_03.png)
+}
+
+div.main-wrapper.index-wrapper ul.index-view li i.icon.icon-04 {
+    background-image: url(../../img/admin/icon_04.png)
+}
+
+div.main-wrapper.index-wrapper ul.index-view li span.tit {
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 15px
+}
+
+div.main-wrapper.index-wrapper .index-box {
+    width: 100%;
+    margin-top: 30px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+    border: 1px solid #DDD;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+
+div.main-wrapper.index-wrapper .index-box .title {
+    width: 100%;
+    background: #E4E4E4;
+    padding: 15px 20px
+}
+
+div.main-wrapper.index-wrapper .index-box .title h2, div.main-wrapper.index-wrapper .index-box .title ul.inline {
+    display: inline-block;
+    vertical-align: middle
+}
+
+div.main-wrapper.index-wrapper .index-box .title h2 {
+    font-size: 20px
+}
+
+div.main-wrapper.index-wrapper .index-box .title ul.inline {
+    display: inline-block;
+    margin-left: 20px
+}
+
+div.main-wrapper.index-wrapper .index-box .title ul.inline:after, div.main-wrapper.index-wrapper div.bottom-info:after, div.main-wrapper.list-wrapper .top-box:after {
+    display: block;
+    content: '';
+    clear: both
+}
+
+div.main-wrapper.index-wrapper .index-box .title ul.inline li {
+    padding: 8px 10px;
+    margin-left: 15px;
+    background: #CCC;
+    font-size: 12px;
+    line-height: 12px;
+    cursor: pointer;
+    float: left
+}
+
+div.main-wrapper.index-wrapper .index-box .title ul.inline li.active {
+    background: #333;
+    color: #FFF
+}
+
+div.main-wrapper.index-wrapper .index-box .content {
+    background: #FFF;
+    padding: 15px 20px
+}
+
+div.main-wrapper.index-wrapper div.box-chart {
+    width: 100%;
+    height: 420px
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box {
+    width: -webkit-calc(50% - 15px);
+    width: calc(50% - 15px);
+    margin-left: 30px;
+    float: left
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box:first-child {
+    margin-left: 0
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table {
+    width: 100%
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table td, div.main-wrapper.index-wrapper div.bottom-info .index-box table th {
+    padding: 10px 15px;
+    border: 1px solid #CCC
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table.info th {
+    font-weight: 400;
+    width: 20px;
+    white-space: nowrap;
+    text-align: right
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table.order td, div.main-wrapper.index-wrapper div.bottom-info .index-box table.order th {
+    text-align: center
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table.order th {
+    background: #FFC;
+    font-weight: 400
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table a.view {
+    color: #428BCA
+}
+
+div.main-wrapper.index-wrapper div.bottom-info .index-box table a.view:hover {
+    opacity: .8
+}
+
+div.main-wrapper.list-wrapper {
+    width: 100%
+}
+
+div.main-wrapper.list-wrapper .top-box {
+    width: 100%;
+    padding-bottom: 20px
+}
+
+div.main-wrapper.list-wrapper .top-box button.button {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #FFF;
+    border: 0;
+    width: 80px;
+    height: 36px;
+    margin-left: 15px
+}
+
+div.main-wrapper.list-wrapper .top-box button.button:first-child {
+    margin-left: 0
+}
+
+div.main-wrapper.list-wrapper .top-box button.button.btn-add {
+    background-color: #009DDA
+}
+
+div.main-wrapper.list-wrapper .top-box button.button.btn-del {
+    background-color: red
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item {
+    float: left;
+    margin: 0 20px 0 0;
+    height: 44px;
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item:first-child {
+    margin-left: 0
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item dd, div.main-wrapper.list-wrapper .top-box dl.item dt {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 3px;
+    font-size: 14px
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item dt {
+    width: 10px;
+    white-space: nowrap;
+    font-weight: 400
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item dd input {
+    width: 160px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 6px 5px
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item dd select {
+    width: 120px;
+    padding: 5px 5px
+}
+
+div.main-wrapper.list-wrapper .top-box dl.item dd button.btn-search {
+    font-size: 14px;
+    color: #FFF;
+    background: #009DDA;
+    border: 0;
+    line-height: 14px;
+    padding: 9px 20px
+}
+
+div.main-wrapper.list-wrapper table.list-box {
+    width: 100%
+}
+
+div.main-wrapper.list-wrapper table.list-box td, div.main-wrapper.list-wrapper table.list-box th {
+    border: 1px solid #CCC;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center
+}
+
+div.main-wrapper.list-wrapper table.list-box th {
+    font-size: 16px;
+    font-weight: 400;
+    background: #E4E4E4
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #666;
+    background: #CCC;
+    border: 0;
+    line-height: 12px;
+    padding: 6px 12px;
+    margin: 0 2px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-edit {
+    background: #666;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-detail {
+    background: #06F;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-send {
+    background: #F90;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-back {
+    background: red;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-price {
+    background: #090;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-pay {
+    background: #C90;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td button.button.btn-close {
+    background: #930;
+    color: #FFF
+}
+
+div.main-wrapper.list-wrapper table.list-box td.wd-operation {
+    width: 200px
+}
+
+div.main-wrapper.list-wrapper table.list-box td.wd-operation button.button {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px
+}
+
+div.main-wrapper.list-wrapper table.list-box td.wd-operation button.button:first-child {
+    margin-top: 0
+}
+
+div.main-wrapper.list-wrapper table.list-box td.all {
+    background: #FFC;
+    color: #C00;
+    text-align: left
+}
+
+div.main-wrapper table.set-detail {
+    width: 100%;
+    border: 1px solid #CCC
+}
+
+div.main-wrapper table.set-detail td, div.main-wrapper table.set-detail th {
+    padding: 12px 20px;
+    border: 1px solid #CCC;
+    vertical-align: top;
+    line-height: 30px
+}
+
+div.main-wrapper table.set-detail th {
+    font-size: 16px;
+    background: #E4E4E4;
+    font-weight: 400;
+    width: 20px;
+    white-space: nowrap
+}
+
+div.main-wrapper table.set-detail td input.ipt-txt, div.main-wrapper table.set-detail td select.select, div.main-wrapper table.set-detail td textarea.tta {
+    font-size: 14px
+}
+
+div.main-wrapper table.set-detail td input.ipt-txt {
+    width: 300px;
+    max-width: 100%;
+    height: 32px;
+    padding: 0 12px
+}
+
+div.main-wrapper table.set-detail td textarea.tta {
+    width: 100%;
+    height: 90px;
+    resize: none;
+    padding: 5px 12px
+}
+
+div.main-wrapper table.set-detail td select.select {
+    padding: 0 12px;
+    height: 32px
+}
+
+div.main-wrapper .set-buttons {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center
+}
+
+div.main-wrapper .set-buttons button {
+    margin: 0 10px;
+    color: #FFF;
+    font-size: 16px;
+    line-height: 14px;
+    padding: 12px 24px;
+    border: 0;
+    outline: 0
+}
+
+div.main-wrapper .set-buttons button.btn-submit {
+    background: #009DDA
+}
+
+div.main-wrapper .set-buttons button.btn-reset {
+    background: #7A7A7A
+}
+
+div.footer-wrapper {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    padding: 15px 0 15px 180px
+}
+
+div.detail-list .thumb {
+    width: 120px;
+    height: 80px;
+    background: #CCC;
+    overflow: hidden
+}
+
+div.detail-list .thumb img {
+    width: 100%;
+    min-height: 100%
+}
+
+div.detail-list dl.ship-info {
+    width: 100%;
+    padding: 20px 0
+}
+
+div.detail-list dl.ship-info dt {
+    font-size: 16px;
+    font-weight: 400
+}
+
+div.detail-list dl.ship-info dd {
+    border: 1px solid #FC0;
+    background: #FFC;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size: 12px;
+    line-height: 20px
+}
+
+div.detail-list dl.record dt {
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 10px
+}
+
+div.detail-list dl.record dd {
+    padding: 8px 0;
+    font-size: 12px;
+    line-height: 24px;
+    color: #666
+}
+
+div.detail-list table.list-box {
+    width: 100%
+}
+
+div.detail-list table.list-box td, div.detail-list table.list-box th {
+    border: 1px solid #CCC;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center
+}
+
+div.detail-list table.list-box th {
+    font-size: 16px;
+    font-weight: 400;
+    background: #E4E4E4
+}
+
+div.detail-list table.list-box td:first-child {
+    width: 10px;
+    white-space: nowrap
+}
+
+div.detail-list table.list-box td button.button {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #666;
+    background: #CCC;
+    border: 0;
+    line-height: 12px;
+    padding: 6px 12px;
+    margin: 0 2px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px
+}
+
+div.detail-list table.list-box td button.button.btn-edit {
+    background: #666;
+    color: #FFF
+}
+
+div.detail-list table.list-box td.all {
+    background: #FFC;
+    color: #C00;
+    text-align: left
+}
