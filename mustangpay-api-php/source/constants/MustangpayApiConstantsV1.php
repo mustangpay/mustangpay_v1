@@ -23,6 +23,11 @@ class MustangpayApiConstantsV1
     const TEST_PRE_CREATE_URL = self::TEST_BASE_URL . '/openApi/merchant_direct/cashier/preorder';
     const TEST_CHECK_ORDER_URL = self::TEST_BASE_URL . '/openApi/merchant_direct/cashier/getOrderStatusByMerchantOrderNo';
     const TEST_H2H_PRE_CREATE_URL = self::TEST_BASE_URL . '/openApi/merchant_h2h/preorder';
+    //String testRefundCreateUrl = testBaseUrl + "/openApi/refund/createRefund";
+    //String testRefundQueryUrl = testBaseUrl + "/openApi/refund/refundStatus";
+    const TEST_REFUND_CREATE_URL = self::TEST_BASE_URL . '/openApi/refund/createRefund';
+    const TEST_REFUND_QUERY_URL = self::TEST_BASE_URL . '/openApi/refund/refundStatus';
+
     public static function geTestMustangPayApiUrl($jumpKey)
     {
         if ($jumpKey == 'preCreate') {
@@ -33,6 +38,12 @@ class MustangpayApiConstantsV1
         }
         if ($jumpKey == 'h2hPreCreate') {
             return self::TEST_H2H_PRE_CREATE_URL;
+        }
+        if ($jumpKey == 'refundCreate') {
+            return self::TEST_REFUND_CREATE_URL;
+        }
+        if ($jumpKey == 'RefundQuery') {
+            return self::TEST_REFUND_QUERY_URL;
         }
         return null;
     }

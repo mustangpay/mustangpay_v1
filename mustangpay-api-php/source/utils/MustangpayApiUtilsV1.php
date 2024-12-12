@@ -32,6 +32,7 @@ class MustangpayApiUtilsV1
             // Encrypt and sign the data
             $sendJson = json_encode(self::encryptToObject($srcBody, RSAUtils::getKeyPem(Yii::$app->params['certFile']['mustangPayPublicKeyPath']), MustangpayApiConstantsV1::MERCHANT_ID));
             error_log("{$logPrefix}|reqeust->sendJson: {$sendJson}");
+
             $client = new Client([
                 'base_uri' => MustangpayApiConstantsV1::geTestMustangPayApiUrl($jumpKey),
                 'timeout' => self::$requestConfig['timeout'],
@@ -46,9 +47,11 @@ class MustangpayApiUtilsV1
                 ],
             ]);
             $responseStr = $response->getBody()->getContents();
+
             error_log("{$logPrefix}|repsonse->str: {$responseStr}");
             $accessBody = json_decode($responseStr, true);
             $body = self::merchantDecrypt($accessBody);
+
             if ($body === null) {
                 throw new \RuntimeException("收到的响应：验签失败");
             }

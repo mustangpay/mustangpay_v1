@@ -11,8 +11,9 @@ class Amount extends ActiveRecord
 {
     const CURRENCY_ZAR = 'ZAR';  // Example for ZAR, you can define more currencies
 
-    public $value;
     public $currency;
+    public $value;
+
 
     // Constants for the various currency codes (you can add more as needed)
     const CURRENCY_CODES = [
