@@ -14,7 +14,7 @@ import java.io.*;
 @Slf4j
 public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
     /**
-     * 该方法是mustangPay创建加签报文的方法
+     * This method is used by mustangPay to create a signed message.
      * @param mustangPayPrivateKey
      * @param merchantPublicKey
      */
@@ -27,13 +27,10 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
           GatewayEncryptReq body = encryptToObject(srcBody,mustangPayPrivateKey,merchantPublicKey);
           //mustangpay receive the body and decrypt to original data
           log.info("response->destBody：{}", JSON.toJSONString(body));
-          // 获取文件路径
           String filePath = getMustangPayFilePath();
 
-          // 创建文件对象
           File file = new File(filePath);
 
-          // 写入数据
           try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
               writer.write(JSON.toJSONString(body));
           }
@@ -45,7 +42,7 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
     }
 
     /**
-     * 商户验证mustangPay提供的报文是否能够验签并解密成功
+     * The merchant verifies whether the message provided by mustangPay can be successfully verified and decrypted.
      * @param merchantPrivateKey
      * @param mustangPayPublicKey
      */
@@ -58,13 +55,10 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
             GatewayEncryptReq body = encryptToObject(srcBody,merchantPrivateKey,mustangPayPublicKey);
             //mustangpay receive the body and decrypt to original data
             log.info("response->destBody：{}", JSON.toJSONString(body));
-            // 获取文件路径
             String filePath = getMustangPayFilePath();
 
-            // 创建文件对象
             File file = new File(filePath);
 
-            // 写入数据
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                 writer.write(JSON.toJSONString(body));
             }
@@ -75,7 +69,7 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
     }
 
     /**
-     * 商户验证mustangPay给过来的带签名的报文
+     * The merchant verifies the signed message provided by mustangPay.
      * @param merchantPrivateKey
      * @param mustangPayPublicKey
      */
@@ -83,7 +77,6 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
         try{
             String filePath = getMustangPayFilePath();
 
-            // 创建文件对象
             File file = new File(filePath);
             //get file info
             long fileSize = file.length();
@@ -108,7 +101,7 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
     }
 
     /**
-     * mustangPay验证商户给过来的带签名的报文
+     * The merchant verifies the signed message provided by mustangPay.
      * @param mustangPayPrivateKey
      * @param merchantPublicKey
      */
@@ -116,7 +109,6 @@ public class verifyKeyApiUtilsV1 extends AbstractBaseKeyApiUtils{
         try{
             String filePath = getMerchantFilePath();
 
-            // 创建文件对象
             File file = new File(filePath);
             //get file info
             long fileSize = file.length();

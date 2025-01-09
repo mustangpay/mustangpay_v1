@@ -30,7 +30,6 @@ public class PreOrderWithPayMethodEftTest {
             // Assuming the Amount and Product classes are defined elsewhere with constructors as needed
             Amount amount = new Amount(100L, CurrencyEnum.ZAR.getCode()); // Assuming constructor accepts amount and currency code
             Product product = new Product("productname", "short", "productDesc_b74f45d43c9c");
-            // 调用 disableSslVerification 方法
 
             // Create a unique reference for each run
             String uniqueReference = UUID.randomUUID().toString();

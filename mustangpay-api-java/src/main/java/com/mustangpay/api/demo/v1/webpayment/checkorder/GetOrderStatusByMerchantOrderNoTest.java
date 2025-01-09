@@ -17,7 +17,7 @@ public class GetOrderStatusByMerchantOrderNoTest {
     public static void main(String[] args) throws Exception {
         MerchantOrderStatusReq req = new MerchantOrderStatusReq();
         req.setMerchantId(MustangpayApiConstantsV1.merchantId);
-        //首先执行PreOrderTest 获得reference 字段
+        // First, execute PreOrderTest to obtain the reference field.
         req.setMerchantOrderNo("a3470b0d-436b-443e-8ebf-997e7a46150a");
         Map<String, Object> result =  MustangpayApiUtilsV1.callMustangPayPreOrderApi("GetOrderStatusByMerchantOrderNoTest", req, OperationEnum.CHECKORDER.getCode());
         log.info("GetOrderStatusByMerchantOrderNoTest result ->{}", result);

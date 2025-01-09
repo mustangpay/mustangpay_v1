@@ -10,30 +10,30 @@ import java.util.Base64;
 /**
  * @Author: hyssop
  * @Date: 08/28/2024
- * 该类主要是方便商户获取一个自己的公私钥，公钥提供给mustangpay，私钥用于商户自己解密mustangpay返回的加密数据：验签和解密
- * !!! 发送公钥到邮箱  张杰 <hyssop.zhang@mustangcash.com>
- *     ！！！ 注明公司名称，公钥请用附件传输
+ * This class is mainly designed to facilitate merchants in obtaining their own public and private keys. The public key is provided to mustangpay, while the private key is used by the merchant to decrypt the encrypted data returned by mustangpay: for signature verification and decryption.
+ * !!! Send the public key to the email  Zhang Jie <hyssop.zhang@mustangpay.co.za>
+ *     !!! Specify the company name, and please send the public key as an attachment.
  */
 @Slf4j
 public class MerchantRsaKeyCreateTest {
     public static void main(String[] args) throws Exception {
-        // 初始化密钥生成器对象，指定密钥长度为2048位
+        // Initialize a key generator object, specifying the key length as 2048 bits.
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
         kpg.initialize(2048);
         JSONObject json = new JSONObject();
-        //遍历 json
+        // Iterate through the JSON.
         for (String key : json.keySet()) {
             log.info("key:{},value:{}", key, json.get(key));
         }
-        // 生成密钥对
+        // Generate a key pair.
         KeyPair keyPair = kpg.generateKeyPair();
 
-        // 获取公钥
+        // Get the public key.
         PublicKey publicKey = keyPair.getPublic();
-        // 获取私钥
+        // Get the private key.
         PrivateKey privateKey = keyPair.getPrivate();
 
-        // 将公钥和私钥转换为字符串形式
+        // Convert the public key and private key to string format.
         String publicKeyString = Base64.getEncoder().encodeToString(publicKey.getEncoded());
         String privateKeyString = Base64.getEncoder().encodeToString(privateKey.getEncoded());
 

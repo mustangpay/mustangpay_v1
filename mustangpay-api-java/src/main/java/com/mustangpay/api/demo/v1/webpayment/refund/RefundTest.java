@@ -35,7 +35,6 @@ public class RefundTest {
         createCashierReq.setMerchantId(MustangpayApiConstantsV1.merchantId);
 
         Map<String, Object> result =  MustangpayApiUtilsV1.callTest("RefundTest", createCashierReq, OperationEnum.RefundCreate.getCode());
-        //{result={"code":"000000","data":{"cashierUrl":"http://110.238.76.97:90/pre-cashier?orderNo=qDsST5U5zPzdKre7N9ueEXLV7ECYTNw0HVM9v0a4Owc=","merchantId":"4449999220","orderNo":"2408281010032775693","orderStatus":"Initial","reference":"993eb0b4-cae7-49b6-a34c-6369317f08cb"},"msg":"ok","sign":"PJfGlnoNNWLUt9gHFptGIvpHm0uEEbHcHMdoc57vWYhp2VfmMUrbub3APsMqTEZ-UfggQPi7-GNWkWjgccjy486zTPiQgCdqmNNSZp_wiwA3x28ubx0HUuKs8q8uytLzWNVmrtn8DDK0xWMyJGoFMA2kcFAvONmoLwS56w-mt1sEb1MNBsFcq88V6V_168vIPWWXO3cO8Nk5hqbPaUs5Pgh6sSnbbJ4buQy-Tdr_utzLY4WWO3BQ7Amrm2teHSC8zkn5u00_9MwMUY4kwRwUMMGR8P0XCvYrAYVuJbDNKshgEHwi-uEmXH0gzu4AEcDdoL7SqTZo9qDmMKLDsoMKUw"}, code=S}
         log.info("RefundTest result ->{}", result);
     }
 }

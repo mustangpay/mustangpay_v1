@@ -18,8 +18,8 @@ import java.util.*;
  */
 @Slf4j
 public class PreOrderWithPayMethodCardTest {
-    //该方法是商户要唤起收银台的时候指定支付方式来唤起收银台，如果给到一个payMethod，说明该商户只想用payMethod来下单支付，
-    //收银台会跳到二级页面，做卡支付（目前只支持卡支付），
+    // This method is used by the merchant to specify the payment method when invoking the checkout page. If a payMethod is provided, it indicates that the merchant only wants to use payMethod for placing orders and making payments.
+// The checkout page will then navigate to a secondary page for card payment (currently only card payments are supported).
     public static void main(String[] args) throws Exception{
         // Assuming the Amount and Product classes are defined elsewhere with constructors as needed
         Amount amount = new Amount(1000L, CurrencyEnum.ZAR.getCode());
@@ -52,7 +52,7 @@ public class PreOrderWithPayMethodCardTest {
         createCashierReq.setCardCvv("1234");
         createCashierReq.setCardExpiryDate("122024");
         createCashierReq.setBankCardNo("4000000000000002");
-      //  createCashierReq.setRemark("中文remark");
+      //  createCashierReq.setRemark("remark");
         Map<String, Object> result =  MustangpayApiUtilsV1.callTest("PreOrderWithPayMethodCardTest", createCashierReq, OperationEnum.H2H_PRECREATE.getCode());
         //{result={"code":"000000","data":{"cashierUrl":"http://110.238.76.97:90/pre-cashier?orderNo=F6RQPjco8t0VhyHlwIf5j3lAggrZlbniCl1ve33jDtI=","merchantId":"4449999220","orderNo":"2408281010032767517","orderStatus":"Initial","reference":"9d02a217-e5b4-4404-b2c9-df1ae8273ad5"},"msg":"ok","sign":"SpIWTc4ECRhi-Eab_yDQIi_MQQP6wn1GS7iXUahyWe5sgL8Gx0X6Kgny4gNdS4EZKugxXZcrDvWQGXau2JumKaseJ_r5UfOo1PWsG-3ceeJ1mN1s7Eau7QUYvfeScc9eIuioADmxZMtAdHwwcvdoLyZ3nENrHbs1jZ7XgWOy4OKhWmasIurjnZpGclkif4Hm1iIr_NFQVQy32bqBoTCz2MEBae5Cyeo6_a-3ZwwhyzAiFxWAEvRpDhsMRhf_HcSOgE7lDYUdcPfFUtJP9_CCojmMfLInaF0ZBEsumMybbFVaNOlayCocztjPPpsadGgegoE20jQMX4vdMNSTWOZH9A"}, code=S}
         log.info("PreOrderWithPayMethodCardTest result ->{}", result);

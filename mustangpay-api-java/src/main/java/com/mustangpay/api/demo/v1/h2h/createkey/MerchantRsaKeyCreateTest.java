@@ -19,19 +19,19 @@ import java.util.Base64;
 @Slf4j
 public class MerchantRsaKeyCreateTest {
     public static void main(String[] args) throws Exception {
-        // 初始化密钥生成器对象，指定密钥长度为2048位
+        // Initialize a key generator object, specifying the key length as 2048 bits.
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
         kpg.initialize(2048);
 
-        // 生成密钥对
+        // Generate a key pair.
         KeyPair keyPair = kpg.generateKeyPair();
 
-        // 获取公钥
+        // Get the public key.
         PublicKey publicKey = keyPair.getPublic();
-        // 获取私钥
+        // Get the private key.
         PrivateKey privateKey = keyPair.getPrivate();
 
-        // 将公钥和私钥转换为字符串形式
+        // Convert the public key and private key to string format.
         String publicKeyString = Base64.getEncoder().encodeToString(publicKey.getEncoded());
         String privateKeyString = Base64.getEncoder().encodeToString(privateKey.getEncoded());
 

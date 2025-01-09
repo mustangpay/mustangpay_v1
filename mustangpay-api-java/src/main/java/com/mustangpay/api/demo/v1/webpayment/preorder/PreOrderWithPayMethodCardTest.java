@@ -18,8 +18,6 @@ import java.util.*;
  */
 @Slf4j
 public class PreOrderWithPayMethodCardTest {
-    //该方法是商户要唤起收银台的时候指定支付方式来唤起收银台，如果给到一个payMethod，说明该商户只想用payMethod来下单支付，
-    //收银台会跳到二级页面，做卡支付（目前只支持卡支付），
     public static void main(String[] args) throws Exception{
         // Assuming the Amount and Product classes are defined elsewhere with constructors as needed
         Amount amount = new Amount(1000L, CurrencyEnum.ZAR.getCode()); // Assuming constructor accepts amount and currency code

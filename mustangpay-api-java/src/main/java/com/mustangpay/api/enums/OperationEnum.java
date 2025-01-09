@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum OperationEnum {
-    PRECREATE("preCreate", "商户预下单"),
-    CHECKORDER("checkOrder", "商户查询订单状态"),
-    H2H_PRECREATE("h2hPreCreate", "商户h2h预下单"),
-    RefundCreate("refundCreate", "商户退款"),
-    RefundQuery("refundQuery", "商户退款查询"),
+    PRECREATE("preCreate", "Merchant Pre-Order Creation"),
+    CHECKORDER("checkOrder", "Merchant Order Status Inquiry"),
+    H2H_PRECREATE("h2hPreCreate", "Merchant H2H Pre-Order Creation"),
+    RefundCreate("refundCreate", "Merchant Refund"),
+    RefundQuery("refundQuery", "Merchant Refund Inquiry"),
     ;
 
     private  String code;

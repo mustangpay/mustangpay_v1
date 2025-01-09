@@ -6,9 +6,10 @@ package com.mustangpay.api.utils.mustangpay;
 public class MustangPayRequestHead {
     private String version;
 
-    private String reqTime;//发送报文时间戳
+    private String reqTime;
 
-    private String reqMsgId;//报文编号
+    private String reqMsgId;//Message ID
+
 
 
 

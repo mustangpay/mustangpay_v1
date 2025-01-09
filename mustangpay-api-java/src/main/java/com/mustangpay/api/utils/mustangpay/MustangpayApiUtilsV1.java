@@ -40,7 +40,7 @@ public class MustangpayApiUtilsV1 {
     private static KeyConfig keyConfig = new MerConfigV1();
 
     static {
-        // 设置请求和传输超时时间
+        // Set the request and transmission timeout durations.
         requestConfig = RequestConfig
                 .custom()
                 .setConnectTimeout(15000)
@@ -56,7 +56,7 @@ public class MustangpayApiUtilsV1 {
 
             String srcBody = JSON.toJSONString(data);
             log.info("{}|reqeust->srcBody：{}", logPrefix, srcBody);
-            //加密+加签
+            // Encrypt and sign.
             String sendJson = JSONObject.toJSONString(encryptToObject(srcBody,
                     RSAUtils.getKeyPem(keyConfig.getMustangPayPublicKeyPath()), MustangpayApiConstantsV1.merchantId));
             log.info("{}|reqeust->sendJson：{}", logPrefix, sendJson);
@@ -89,26 +89,26 @@ public class MustangpayApiUtilsV1 {
                     responseStr = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
                 }
             } catch (Exception e) {
-                throw new RuntimeException("post请求提交失败", e);
+                throw new RuntimeException("post error", e);
             } finally {
                 httpPost.releaseConnection();
             }
             log.info("{}|repsonse->str:{}", logPrefix, responseStr);
-            // 解析
+            // Parse.
             JSONObject respJsonObj = JSON.parseObject(responseStr);
             log.info("{}|repsonse->json:{}", logPrefix, respJsonObj.toString());
             GatewayEncryptReq accessBody = JSONObject.parseObject(responseStr, GatewayEncryptReq.class);
-            // 验签+获得结果
+            // Verify signature and obtain the result.
             String body = merchantDecrypt(accessBody);
             if (body == null) {
-                throw new RuntimeException("收到的响应：验签失败");
+                throw new RuntimeException("Received response: Signature verification failed.");
             }
-            log.info("{}|repsonse->验签成功", logPrefix);
+            log.info("{}|repsonse->Signature verification successful.", logPrefix);
 
             result = body;
             success = true;
         } catch (Exception e) {
-            log.error("Mustangpay接口失败", e);
+            log.error("Mustangpay Interface failure.", e);
         }
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("code", success ? "S" : "F");
@@ -122,7 +122,7 @@ public class MustangpayApiUtilsV1 {
         try {
 
             String srcBody = JSON.toJSONString(data);
-            //加密+加签
+            //Encryption + Signing
             String sendJson = JSONObject.toJSONString(encryptProToObject(srcBody,
                     RSAUtils.getKeyPem(keyConfig.getProMustangPayPublicKeyPath()), MustangpayApiConstantsV1.merchantId));
             log.info("{}|reqeust->sendJson：{}", logPrefix, sendJson);
@@ -155,26 +155,26 @@ public class MustangpayApiUtilsV1 {
                     responseStr = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
                 }
             } catch (Exception e) {
-                throw new RuntimeException("post请求提交失败", e);
+                throw new RuntimeException("post error", e);
             } finally {
                 httpPost.releaseConnection();
             }
             log.info("{}|repsonse->str:{}", logPrefix, responseStr);
-            // 解析
+            // Parse.
             JSONObject respJsonObj = JSON.parseObject(responseStr);
             log.info("{}|repsonse->json:{}", logPrefix, respJsonObj.toString());
             GatewayEncryptReq accessBody = JSONObject.parseObject(responseStr, GatewayEncryptReq.class);
-            // 验签+获得结果
+            // Verify signature and obtain the result.
             String body = merchantProDecrypt(accessBody);
             if (body == null) {
-                throw new RuntimeException("收到的响应：验签失败");
+                throw new RuntimeException("Received response: Signature verification failed.");
             }
-            log.info("{}|repsonse->验签成功", logPrefix);
+            log.info("{}|repsonse->sign success!", logPrefix);
 
             result = body;
             success = true;
         } catch (Exception e) {
-            log.error("Mustangpay接口失败", e);
+            log.error("Mustangpay fail!", e);
         }
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("code", success ? "S" : "F");
@@ -182,7 +182,7 @@ public class MustangpayApiUtilsV1 {
         return resultMap;
     }
 
-    //验签
+    //verify
     public static String merchantProDecrypt(GatewayEncryptReq body) {
         long parseStartTime = System.nanoTime();
         String merchantId = body.getMerchantId();
@@ -240,7 +240,7 @@ public class MustangpayApiUtilsV1 {
     }
 
 
-    //验签
+    // signature verification
     public static String merchantDecrypt(GatewayEncryptReq body) {
         long parseStartTime = System.nanoTime();
         String merchantId = body.getMerchantId();
@@ -297,7 +297,7 @@ public class MustangpayApiUtilsV1 {
         return null;
     }
 
-    //加密
+    //Encryption
     public static GatewayEncryptReq encryptToObject(String response, String mustangPayPublicKey, String merchantId) {
 
         if (StringUtils.isBlank(mustangPayPublicKey)) {
@@ -348,7 +348,7 @@ public class MustangpayApiUtilsV1 {
         return getewayParamEncryptReq;
     }
 
-    //加密
+    //Encryption
     public static GatewayEncryptReq encryptProToObject(String response, String mustangPayPublicKey, String merchantId) {
 
         if (StringUtils.isBlank(mustangPayPublicKey)) {

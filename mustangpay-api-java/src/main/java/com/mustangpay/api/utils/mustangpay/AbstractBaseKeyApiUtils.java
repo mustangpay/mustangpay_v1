@@ -31,7 +31,7 @@ import java.util.UUID;
  */
 @Slf4j
 public abstract class AbstractBaseKeyApiUtils {
-    //加签名
+    //sign
     public static GatewayEncryptReq encryptToObject(String srcBody, String privateKey, String thirdPartPublicKey) {
 
         if (StringUtils.isBlank(srcBody)) {
@@ -81,7 +81,7 @@ public abstract class AbstractBaseKeyApiUtils {
         return getewayParamEncryptReq;
     }
 
-    //验签
+    //signature verification
     public static String decrypt(String ownPrivateKey, String thirdPartPublicKey, GatewayEncryptReq body) {
         long parseStartTime = System.nanoTime();
         String merchantId = body.getMerchantId();
@@ -169,33 +169,27 @@ public abstract class AbstractBaseKeyApiUtils {
     }
 
     public static String getMustangPayFilePath() {
-        // 获取当前类的 ClassLoader
         ClassLoader classLoader = ResourceLoader.class.getClassLoader();
-
-        // 尝试获取资源文件路径
         URL resourceUrl = classLoader.getResource("mustangpay/pro/MustangPayEncryptData");
 
         if (resourceUrl == null) {
             throw new RuntimeException("Resource not found: mustangpay/pro/MustangPayEncryptData");
         }
 
-        // 获取资源文件的绝对路径
         String filePath = resourceUrl.getPath();
 
         return filePath;
     }
+
     public static String getMerchantFilePath() {
-        // 获取当前类的 ClassLoader
         ClassLoader classLoader = ResourceLoader.class.getClassLoader();
 
-        // 尝试获取资源文件路径
         URL resourceUrl = classLoader.getResource("mustangpay/pro/MerchantEncryptData");
 
         if (resourceUrl == null) {
             throw new RuntimeException("Resource not found: mustangpay/pro/MerchantEncryptData");
         }
 
-        // 获取资源文件的绝对路径
         String filePath = resourceUrl.getPath();
 
         return filePath;
